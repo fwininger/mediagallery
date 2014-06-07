@@ -11,6 +11,8 @@ abstract class Controllers
 {
 	protected $http;
 
+	private $vars = array();
+
 	public function __construct() {
 		$this->http = new Http();
 	}
@@ -39,6 +41,13 @@ abstract class Controllers
 	}
 
 	public function body() {
+	}
+
+	public function addVar($key, $value) {
+		if (!is_string($key) || is_numeric($key) || empty($key))
+			return false;
+		$this->vars[$key] = $value;
+		return true;
 	}
 
 	public function displayView($view) {
