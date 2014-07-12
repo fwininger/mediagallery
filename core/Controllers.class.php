@@ -18,6 +18,7 @@ abstract class Controllers
 	}
 
 	public function html() {
+		echo "<!DOCTYPE html>\n";
 		echo "<html>\n";
 		echo "  <header>\n";
 
@@ -34,10 +35,19 @@ abstract class Controllers
 
 	public function header() {
 		$this->title();
+		$this->css();
+		$this->script();
 	}
 
 	public function title() {
 		echo "<title>Espace de Stockage de Photos</title>\n";
+	}
+
+	public function css() {
+		echo "<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n";
+	}
+
+	public function script() {
 	}
 
 	public function body() {
