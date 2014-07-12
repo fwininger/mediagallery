@@ -44,10 +44,12 @@ abstract class Controllers
 	}
 
 	public function css() {
-		echo "<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n";
+		echo "<link href=\"public/css/bootstrap.min.css\" rel=\"stylesheet\">\n";
 	}
 
 	public function script() {
+		echo "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>\n";
+		echo "<script src=\"public/js/bootstrap.min.js\"></script>\n";
 	}
 
 	public function body() {
