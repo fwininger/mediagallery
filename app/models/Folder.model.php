@@ -11,9 +11,12 @@ class Folder
 
 	protected $name;
 
-	public function __construct($path) {
+	protected $level;
+
+	public function __construct($path, $level = 0) {
 		$this->path = $path;
 		$this->name = strrchr($path, "/");
+		$this->level = 0;
 	}
 
 	public function getName() {
@@ -63,6 +66,18 @@ class Folder
 
 	public static function isValid($path) {
 		return is_dir($path) ;
+	}
+
+	public function isSharedBy($id_user) {
+		$db = new DB();
+		$response =  $db->query_secure("SELECT ressource FROM photos_partage INNER JOIN photos_user ON photos_partage.id_user_prop = photos_user.id WHERE id_user_prop = ?", array($id_user));
+
+		while ($data = $response->fetch()) {
+			if($this->path == $data['ressource']) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
 
