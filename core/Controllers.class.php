@@ -45,6 +45,7 @@ abstract class Controllers
 
 	public function css() {
 		echo "<link href=\"public/css/bootstrap.min.css\" rel=\"stylesheet\">\n";
+		echo "<link href=\"public/css/styles.css\" rel=\"stylesheet\">\n";
 	}
 
 	public function script() {
