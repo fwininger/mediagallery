@@ -109,6 +109,9 @@ body {
 	max-height:200px;
 	}
 }
+.info img {
+	max-height:650px;
+}
 
 /**
 	Login
