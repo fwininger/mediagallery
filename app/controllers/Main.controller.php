@@ -55,6 +55,21 @@ class Main extends Controllers
 		return false;
 	}
 
+	public function sideBar() {
+		if(!$this->connexion())
+			return false;
+
+		$folder = new Folder($this->http->session('directory'));
+		$list = $folder->getSubFolder();
+
+		if($list == null)
+			return;
+
+		$this->addVar("listItems", $list);
+
+		$this->displayView("sidebar");
+	}
+
 	private function index() {
 		$this->displayView("index");
 	}
