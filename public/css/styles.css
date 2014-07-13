@@ -83,12 +83,31 @@ body {
 .placeholders {
 	margin-bottom: 30px;
 	text-align: center;
+	text-align: -moz-center;
 }
 .placeholders h4 {
 	margin-bottom: 0;
 }
 .placeholder {
 	margin-bottom: 20px;
+}
+.placeholder img {
+	max-height:120px;
+}
+@media (min-width: 1170px) {
+	.placeholder img {
+	max-height:150px;
+	}
+}
+@media (min-width: 1330px) {
+	.placeholder img {
+	max-height:175px;
+	}
+}
+@media (min-width: 1485px) {
+	.placeholder img {
+	max-height:200px;
+	}
 }
 
 /**
