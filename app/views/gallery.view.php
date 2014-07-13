@@ -21,9 +21,16 @@
 		$files = $this->vars['listFiles'];
 
 		for($i = 0; $i < count($files); $i++) {
+			$p = $this->http->session('directory');
+			$p .= $this->http->get('dir').'/';
+			$p .= $files[$i];
 			?>
 			<div class="col-xs-6 col-sm-3 placeholder">
+			<?php if(Jpeg::isValid($p)) { ?>
 				<img src="thumbnail?dir=<?php echo $this->http->get('dir'); ?>&image=<?php echo $files[$i]; ?>" class="img-responsive" alt="<?php echo $files[$i] ?>">
+			<?php } else { ?>
+				<img src="public/images/video-clip.png" class="img-responsive" alt="<?php echo $files[$i] ?>">
+			<?php } ?>
 				<h4><?php echo $files[$i] ?></h4>
 			</div>
 			<?php
