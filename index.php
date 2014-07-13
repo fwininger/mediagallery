@@ -12,6 +12,4 @@ session_start();
 $page = new Main();
 $page->html();
 
-
-
 ?>

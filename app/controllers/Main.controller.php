@@ -70,6 +70,25 @@ class Main extends Controllers
 		$this->displayView("sidebar");
 	}
 
+	public function gallery() {
+		if(!$this->connexion())
+			return false;
+		$path = $this->http->session('directory');
+		$path .= $this->http->get('dir');
+		if(!Folder::isValid($path))
+			return false;
+
+		$folder = new Folder($path);
+		$list = $folder->getFiles();
+
+		if($list == null)
+			return;
+
+		$this->addVar("listFiles", $list);
+
+		$this->displayView("gallery");
+	}
+
 	private function index() {
 		$this->displayView("index");
 	}

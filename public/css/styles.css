@@ -90,10 +90,6 @@ body {
 .placeholder {
 	margin-bottom: 20px;
 }
-.placeholder img {
-	display: inline-block;
-	border-radius: 50%;
-}
 
 /**
 	Login
