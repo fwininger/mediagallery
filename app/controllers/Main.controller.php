@@ -25,27 +25,17 @@ class Main extends Controllers
 
 		if($this->http->postExists('user') && $this->http->postExists('pwd')) {
 			$login    = $this->http->post('user');
-			// TODO : add a SHA/MD5 support of the password in the DB
 			$password = $this->http->post('pwd');
 
 			if($login == "" || $password == "")
-				die ("<b>BAD LOGIN</b");
+				die ("<b>BAD LOGIN</b>");
 
-			$db = new DB();
-			$response = $db->query_secure("SELECT * FROM photos_user WHERE login = ? AND pass = ?", array($login,$password));
-			$data = $response->fetch();
+			$user = new User($login, $password);
 
-			if($data == false)
-				die ("<b>BAD LOGIN</b");
+			if(!$user->isValid())
+				die ("<b>BAD LOGIN</b>");
 
-			$this->http->sessionSet('ok', 1);
-			$this->http->sessionSet('directory', $GLOBALS['CONFIG_photo'].$data['repertoire']);
-			$this->http->sessionSet('directory_min', $GLOBALS['CONFIG_photo'].$data['repertoire_min']);
-			$this->http->sessionSet('directory_diapo', $GLOBALS['CONFIG_photo'].$data['repertoire_diapo']);
-			$this->http->sessionSet('description', $data['description']);
-			$this->http->sessionSet('id_user', $data['id']);
-
-			return true;
+			return $user->save();
 		}
 
 		if($this->http->session('ok')) {
