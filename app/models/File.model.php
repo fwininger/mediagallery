@@ -21,6 +21,7 @@ abstract class File
 
 		$file = strrchr($path, "/");
 		$this->extension = substr(strrchr($file, "."), 1);
+		$this->extension = strtolower($this->extension);
 		$this->name = substr(strstr($file, ".", true), 1);
 	}
 
