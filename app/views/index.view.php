@@ -12,7 +12,7 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="slider?dir=<?php echo $this->http->get('dir'); ?>">Diaporama</a></li>
-				<li><a href="#">Paramètres</a></li>
+				<li><a href="#">ParamÃ¨tres</a></li>
 				<li><a href="#">Partage</a></li>
 			</ul>
 		</div>

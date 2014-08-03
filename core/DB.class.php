@@ -22,7 +22,7 @@ class DB
 				$this->db = $db;
 			}
 			catch(PDOException $e) {
-				die("Erreur de connexion à la DB, impossible d'ouvrir le site");
+				die("Erreur de connexion Ã  la DB, impossible d'ouvrir le site");
 			}
 
 			$this->prefixe = $DB_prefixe;

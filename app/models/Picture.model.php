@@ -58,10 +58,10 @@ abstract class Picture extends File
 	// TODO : Make it unstatic
 	// Source Code : http://code.seebz.net/p/imagethumb/
 	// Utilisation :
-	// 		imagethumb() génère une copie de l'image image_src aux dimensions maximales max_size et l'envoie vers un navigateur ou le fichier image_dest.
-	//		imagethumb() utilise la bibliothèque GD et retournera FALSE si celle-ci n'est pas disponible
-	//		imagethumb() fonctionne correctement avec les images de type Jpeg, Png et Gif. Dans le cas d'un Gif animé, seule la première frame sera utilisé.
-	//		imagethumb() gère la transparence.
+	// 		imagethumb() gÃ©nÃ¨re une copie de l'image image_src aux dimensions maximales max_size et l'envoie vers un navigateur ou le fichier image_dest.
+	//		imagethumb() utilise la bibliothÃ¨que GD et retournera FALSE si celle-ci n'est pas disponible
+	//		imagethumb() fonctionne correctement avec les images de type Jpeg, Png et Gif. Dans le cas d'un Gif animÃ©, seule la premiÃ¨re frame sera utilisÃ©.
+	//		imagethumb() gÃ¨re la transparence.
 	public static function imagethumb($image_src, $image_dest = NULL, $max_size = 100, $expand = FALSE, $square = FALSE) {
 
 		if(!file_exists($image_src))

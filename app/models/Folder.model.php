@@ -46,7 +46,7 @@ class Folder
 
 	public function getFiles() {
 		if(!Folder::isValid($this->path))
-			die("<br/><b>Le répertoire n'existe pas!</b>");
+			die("<br/><b>Le rÃ©pertoire n'existe pas!</b>");
 
 		$dir = opendir($this->path);
 		while($file = readdir($dir)) {
@@ -65,7 +65,7 @@ class Folder
 
 	public function getSubFolder() {
 		if(!Folder::isValid($this->path))
-			die("<br/><b>Le répertoire n'existe pas!</b>");
+			die("<br/><b>Le rÃ©pertoire n'existe pas!</b>");
 
 		$dir = opendir($this->path);
 		while($folder = readdir($dir)) {
