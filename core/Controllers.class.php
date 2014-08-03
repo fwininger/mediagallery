@@ -34,9 +34,14 @@ abstract class Controllers
 	}
 
 	public function header() {
+		$this->meta();
 		$this->title();
 		$this->css();
 		$this->script();
+	}
+
+	public function meta() {
+		echo "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n";
 	}
 
 	public function title() {
