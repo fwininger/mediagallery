@@ -49,12 +49,12 @@ class Video extends File
 			header('HTTP/1.0 200 OK');
 
 		header("Content-Type: video/mp4");
-		header('Accept-Ranges: bytes');
+		//header('Accept-Ranges: bytes');
 		header('Content-Length:'.($end-$begin));
 		header("Content-Disposition: inline;");
-		header("Content-Range: bytes $begin-$end/$size");
+		//header("Content-Range: bytes $begin-$end/$size");
 		header("Content-Transfer-Encoding: binary\n");
-		header('Connection: close');
+		//header('Connection: close');
 
 		$cur=$begin;
 		fseek($fm,$begin,0);
