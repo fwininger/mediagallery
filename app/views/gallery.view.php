@@ -1,6 +1,6 @@
 <script>
 $(document).ready(function() {
-    $(".myDiv").click(function() {
+	$(".myDiv").click(function() {
 		if (!$(this).hasClass("info") ) {
 			$(this).addClass("info");
 			$(this).animate({
@@ -22,8 +22,22 @@ $(document).ready(function() {
 			var src = $(this).children('.myImg').attr("src").replace("thumbbig", "thumbnail");
 			$(this).children('.myImg').attr("src", src);
 		}
-    });
+	});
+	$(".videotitle").click(function() {
+		if (!$(this).parent().hasClass("info") ) {
+			$(this).parent().addClass("info");
+			$(this).parent().animate({
+				width: '80%',
+			}, 500);
+		} else {
+			$(this).parent().removeClass("info");
+			$(this).parent().animate({
+				width: '25%',
+			}, 500);
+		}
+	});
 });
+
 </script>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	<?php
@@ -51,18 +65,26 @@ $(document).ready(function() {
 			$p = $this->http->session('directory');
 			$p .= $this->http->get('dir').'/';
 			$p .= $files[$i];
+
+			if(Jpeg::isValid($p)) {
 			?>
 			<div class="col-xs-6 col-sm-3 placeholder myDiv">
-			<?php if(Jpeg::isValid($p)) { ?>
 				<img src="thumbnail?dir=<?php echo $this->http->get('dir'); ?>&image=<?php echo $files[$i]; ?>" class="img-responsive myImg" alt="<?php echo $files[$i] ?>">
-			<?php } else { ?>
-				<img src="public/images/video-clip.png" class="img-responsive" alt="<?php echo $files[$i] ?>">
-			<?php } ?>
 				<h4><?php echo $files[$i] ?></h4>
 				<div class="myExif"></div>
 			</div>
+			<?php } else { ?>
+			<div class="col-xs-6 col-sm-3 placeholder myDivVideo">
+				<video src="video?dir=<?php echo $this->http->get('dir'); ?>&image=<?php echo $files[$i]; ?>"
+					style="width:100%;height:100%;" width="100%" height="100%" controls="controls" preload="none" type="video/mp4"></video>
+				<h4 class='videotitle'><?php echo $files[$i] ?></h4>
+			</div>
 			<?php
+			}
 		}
 		?>
 	</div>
 </div>
+<script>
+	$('audio,video').mediaelementplayer({ /* options */ });
+</script>
