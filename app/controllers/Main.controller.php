@@ -82,6 +82,20 @@ class Main extends Controllers
 	private function index() {
 		$this->displayView("index");
 	}
+
+	public function script() {
+		parent::script();
+		if ($this->connexion()) {
+			echo "<script src=\"public/mediaelement/mediaelement-and-player.min.js\"></script>\n";
+		}
+	}
+
+	public function css() {
+		parent::css();
+		if ($this->connexion()) {
+			echo "<link href=\"public/mediaelement/mediaelementplayer.min.css\" rel=\"stylesheet\" />\n";
+		}
+	}
 }
 
 ?>
